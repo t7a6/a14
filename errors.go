@@ -28,6 +28,7 @@ var _ Error = (*errorInternal)(nil)
 
 type Error interface {
 	Error() string
+	Kind() ErrorKind
 }
 
 type errorInternal struct {
@@ -39,6 +40,10 @@ type errorInternal struct {
 
 func (e *errorInternal) Error() string {
 	return e.msg
+}
+
+func (e *errorInternal) Kind() ErrorKind {
+	return e.kind
 }
 
 func (e *errorInternal) Format(s fmt.State, v rune) {
