@@ -15,7 +15,7 @@ func TestNewError(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-		want A14Error
+		want Error
 	}{
 		{
 			name: "Test NewUnauthorizedError",
@@ -24,7 +24,7 @@ func TestNewError(t *testing.T) {
 				kind: UnauthorizedError,
 				err:  nil,
 			},
-			want: &a14ErrorInternal{
+			want: &errorInternal{
 				kind: UnauthorizedError,
 				msg:  "Test NewUnauthorizedError",
 				err:  nil,
@@ -37,7 +37,7 @@ func TestNewError(t *testing.T) {
 				kind: UnauthorizedError,
 				err:  originalError,
 			},
-			want: &a14ErrorInternal{
+			want: &errorInternal{
 				kind: UnauthorizedError,
 				msg:  "Test NewUnauthorizedError",
 				err:  originalError,
